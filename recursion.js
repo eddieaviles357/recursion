@@ -33,13 +33,16 @@ function isPalindrome(str) {
 /** findIndex: return the index of val in arr (or -1 if val is not present). */
 
 function findIndex(arr, val) {
+  if(arr.length === 0) return -1;
+  if(arr[arr.length - 1] === val) return arr.length - 1;
 
-}
-
+  return findIndex(arr.slice(0, -1), val);
+};
 /** revString: return a copy of a string, but in reverse. */
 
 function revString(str) {
-
+  if(str.length === 1) return str;
+  return str.slice(-1) + revString(str.slice(0, -1));
 }
 
 /** gatherStrings: given an object, return an array of all of the string values. */
