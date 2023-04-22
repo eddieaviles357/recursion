@@ -32,11 +32,11 @@ function isPalindrome(str) {
 
 /** findIndex: return the index of val in arr (or -1 if val is not present). */
 
-function findIndex(arr, val) {
+function findIndex(arr, val, idx = 0) {
   if(arr.length === 0) return -1;
-  if(arr[arr.length - 1] === val) return arr.length - 1;
-
-  return findIndex(arr.slice(0, -1), val);
+  if(arr[0] === val) return idx;
+  idx++;
+  return findIndex(arr.slice(1), val, idx);
 };
 /** revString: return a copy of a string, but in reverse. */
 
@@ -70,5 +70,5 @@ module.exports = {
   findIndex,
   revString,
   gatherStrings,
-  binarySearch
+  // binarySearch
 };
