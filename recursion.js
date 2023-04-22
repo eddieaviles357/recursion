@@ -19,13 +19,15 @@ function longest(words, length = 0) {
 function everyOther(str) {
   if(str.length === 0) return '';
 
-  return str[0] + everyOther(str.split('').splice(2).join(''));
+  return str[0] + everyOther(str.slice(2));
 }
 
 /** isPalindrome: checks whether a string is a palindrome or not. */
 
 function isPalindrome(str) {
-
+  if(str.length === 1 || str.length === 0) return true; // letter itself is palindrome
+  if(str[0] === str[str.length - 1]) return isPalindrome(str.slice(1, -1));
+  return false; // letter is not palindrome
 }
 
 /** findIndex: return the index of val in arr (or -1 if val is not present). */
